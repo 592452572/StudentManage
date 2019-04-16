@@ -57,7 +57,7 @@
 
         <!-- JDBC连接配置 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/student_manage?serverTimezone=UTC"
+                        connectionURL="jdbc:mysql://localhost:3306/student_manage?serverTimezone=Asia/Shanghai"
                         userId="root"
                         password="root"/>
 
@@ -100,7 +100,7 @@
                 是否创建一个不可变的类，如果为true
                 那么MBG会创建一个没有setter方法的类,取而代之的是类似constructorBased的类
             -->
-            <<property name="immutable" value="false"/>
+            <property name="immutable" value="false"/>
 
             <!--
                 设置一个根对象
@@ -187,7 +187,8 @@
 
             注意,table里面很多参数都是对javaModelGenerator,context等元素的默认属性的一个复写
         -->
-        <table tableName="%"
+        <table tableName="mymanage_competition"
+               domainObjectName="Competition"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
@@ -291,6 +292,22 @@
                 注意,一个table元素中可以有多个ignoreColumn元素
             -->
             <!--<ignoreColumn column="deptId" delimitedColumnName=""/>-->
+        </table>
+        <table tableName="mymanage_school"
+               domainObjectName="School"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="mymanage_user"
+               domainObjectName="User"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
         </table>
     </context>
 </generatorConfiguration>
