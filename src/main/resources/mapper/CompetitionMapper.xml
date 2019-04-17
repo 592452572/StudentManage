@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.white.mapper.CompetitionMapper">
+  <resultMap id="BaseResultMap" type="com.white.model.Competition">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="bonus" jdbcType="INTEGER" property="bonus" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="competition_time" jdbcType="DATE" property="competitionTime" />
+    <result column="get_time" jdbcType="DATE" property="getTime" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="organizer" jdbcType="VARCHAR" property="organizer" />
+    <result column="c_time" jdbcType="TIMESTAMP" property="cTime" />
+    <result column="u_time" jdbcType="TIMESTAMP" property="uTime" />
+    <result column="is_delete" jdbcType="BIT" property="isDelete" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.white.model.Competition">
+    insert into mymanage_competition (id, bonus, title, 
+      competition_time, get_time, image_url, 
+      level, organizer, c_time, 
+      u_time, is_delete, user_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{bonus,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{competitionTime,jdbcType=DATE}, #{getTime,jdbcType=DATE}, #{imageUrl,jdbcType=VARCHAR}, 
+      #{level,jdbcType=INTEGER}, #{organizer,jdbcType=VARCHAR}, #{cTime,jdbcType=TIMESTAMP}, 
+      #{uTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIT}, #{userId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.white.model.Competition">
+    insert into mymanage_competition
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bonus != null">
+        bonus,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="competitionTime != null">
+        competition_time,
+      </if>
+      <if test="getTime != null">
+        get_time,
+      </if>
+      <if test="imageUrl != null">
+        image_url,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+      <if test="organizer != null">
+        organizer,
+      </if>
+      <if test="cTime != null">
+        c_time,
+      </if>
+      <if test="uTime != null">
+        u_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bonus != null">
+        #{bonus,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="competitionTime != null">
+        #{competitionTime,jdbcType=DATE},
+      </if>
+      <if test="getTime != null">
+        #{getTime,jdbcType=DATE},
+      </if>
+      <if test="imageUrl != null">
+        #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="organizer != null">
+        #{organizer,jdbcType=VARCHAR},
+      </if>
+      <if test="cTime != null">
+        #{cTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uTime != null">
+        #{uTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

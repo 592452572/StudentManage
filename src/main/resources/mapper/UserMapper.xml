@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.white.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.white.model.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="role" jdbcType="INTEGER" property="role" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="sex" jdbcType="BIT" property="sex" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="institute" jdbcType="VARCHAR" property="institute" />
+    <result column="professional" jdbcType="VARCHAR" property="professional" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="c_time" jdbcType="TIMESTAMP" property="cTime" />
+    <result column="u_time" jdbcType="TIMESTAMP" property="uTime" />
+    <result column="is_delete" jdbcType="BIT" property="isDelete" />
+    <result column="school_id" jdbcType="INTEGER" property="schoolId" />
+    <result column="id_cart" jdbcType="VARCHAR" property="idCart" />
+  </resultMap>
+  <insert id="insert" parameterType="com.white.model.User">
+    insert into mymanage_user (id, role, user_name, 
+      sex, name, password, institute, 
+      professional, phone, email, 
+      c_time, u_time, is_delete, 
+      school_id, id_cart)
+    values (#{id,jdbcType=INTEGER}, #{role,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=BIT}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{institute,jdbcType=VARCHAR}, 
+      #{professional,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{cTime,jdbcType=TIMESTAMP}, #{uTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIT}, 
+      #{schoolId,jdbcType=INTEGER}, #{idCart,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.white.model.User">
+    insert into mymanage_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="institute != null">
+        institute,
+      </if>
+      <if test="professional != null">
+        professional,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="cTime != null">
+        c_time,
+      </if>
+      <if test="uTime != null">
+        u_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="schoolId != null">
+        school_id,
+      </if>
+      <if test="idCart != null">
+        id_cart,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="institute != null">
+        #{institute,jdbcType=VARCHAR},
+      </if>
+      <if test="professional != null">
+        #{professional,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="cTime != null">
+        #{cTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uTime != null">
+        #{uTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="schoolId != null">
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="idCart != null">
+        #{idCart,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
